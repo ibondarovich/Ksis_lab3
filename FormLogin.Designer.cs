@@ -76,7 +76,7 @@ namespace Chat_lab3
             this.textBoxIP.Location = new System.Drawing.Point(201, 170);
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(276, 26);
-            this.textBoxIP.TabIndex = 4;
+            this.textBoxIP.TabIndex = 1;
             // 
             // FormLogin
             // 

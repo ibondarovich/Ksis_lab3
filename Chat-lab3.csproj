@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveUser.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,11 +59,16 @@
     <Compile Include="FormChat.Designer.cs">
       <DependentUpon>FormChat.cs</DependentUpon>
     </Compile>
+    <Compile Include="IUserActions.cs" />
+    <Compile Include="IUserList.cs" />
+    <Compile Include="MessageCreator.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="UserInfo.cs" />
+    <Compile Include="UserList.cs" />
     <Compile Include="NewUser.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserActions.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>

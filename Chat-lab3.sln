@@ -1,25 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.32106.194
+VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat-lab3", "Chat-lab3.csproj", "{75FBBA6E-48A9-4C5B-8D50-712077483A1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8DAB3C8C-62F0-488D-9B89-C3BF2AB84939}
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Debug|x64.Build.0 = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Debug|x86.Build.0 = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Release|x64.ActiveCfg = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Release|x64.Build.0 = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Release|x86.ActiveCfg = Debug|Any CPU
+		{75FBBA6E-48A9-4C5B-8D50-712077483A1F}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

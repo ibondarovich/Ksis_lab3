@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,9 +14,9 @@ namespace Chat_lab3
 {
     public partial class FormLogin : Form
     {
-        public string userName;
-        public string userIP;
+        private FormChat formChat;
 
+        
         public FormLogin()
         { 
             InitializeComponent();
@@ -24,17 +26,20 @@ namespace Chat_lab3
         {
             if(textBoxName.Text != "" && textBoxIP.Text != "")
             {
-                userName = textBoxName.Text;
-                userIP = textBoxIP.Text;
+                formChat = new FormChat();
+                formChat.UserName = textBoxName.Text;
+                formChat.UserIP = textBoxIP.Text;
 
-                FormChat formChat = new FormChat();
+               
+
                 formChat.ShowDialog();
+                
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Введите свое имя!");
-            }
-            
+            }  
         }
     }
 }

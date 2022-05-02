@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-using System.Net.Sockets;
+using System.Threading;
 
 namespace Chat_lab3
 {
     public partial class FormChat : Form
     {
-        IPAddress iPAddress;
-        NewUser newUser;
+        private IPAddress iPAddress;
+        private NewUser newUser;
         
+        public string UserName { get; set; }
+        public string UserIP { get; set; }
+
         public FormChat()
         {
             InitializeComponent();
@@ -24,13 +20,29 @@ namespace Chat_lab3
 
         private void FormChat_Load(object sender, EventArgs e)
         {
-            FormLogin formLogin = new FormLogin();
-            string userName = formLogin.userName;
-            string userIP = formLogin.userIP;
+            iPAddress = IPAddress.Parse(UserIP);
+            newUser = new NewUser(textBoxChat, new UserInfo(iPAddress, UserName));
+            this.Text = UserName + " " + iPAddress;
+        }
 
-            iPAddress = IPAddress.Parse(userIP);
+        private void FormChat_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (var user in newUser.userList.ListOfUsers.Keys)
+            {
+                user.SendMessageTCP("1" + textBoxMessage.Text);
+            }
+            newUser.Disconnect();
+        }
 
-            //newUser = new NewUser(userIP);
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            textBoxChat.Text += UserName + " " + UserIP + " " + textBoxMessage.Text+"\r\n";
+            foreach(var user in newUser.userList.ListOfUsers.Keys)
+            {
+                user.SendMessageTCP("2"+textBoxMessage.Text);
+            }
+
+            textBoxMessage.Text = string.Empty;
         }
     }
 }

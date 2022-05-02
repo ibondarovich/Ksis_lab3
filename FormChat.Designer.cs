@@ -42,6 +42,7 @@ namespace Chat_lab3
             this.buttonSend.TabIndex = 1;
             this.buttonSend.Text = "Отправить";
             this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // textBoxMessage
             // 
@@ -76,6 +77,7 @@ namespace Chat_lab3
             this.Name = "FormChat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chat";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormChat_FormClosing);
             this.Load += new System.EventHandler(this.FormChat_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -87,6 +89,5 @@ namespace Chat_lab3
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.TextBox textBoxMessage;
         private System.Windows.Forms.TextBox textBoxChat;
-        
     }
 }
