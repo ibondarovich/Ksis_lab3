@@ -4,18 +4,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System;
 
 namespace Chat_lab3
 {   public class NewUser 
     {
-        //private string userName;
         private UserInfo userInfo;
         private int portUDP = 5555;
         private IPEndPoint iPEndPoint;
-
         public UserList userList;
-
-        public string UserAction { get; set; }
         private Task receiveTask;
         private Task receiveTCPTask;
 
@@ -71,12 +68,11 @@ namespace Chat_lab3
                     activeUser.SetConnectionWithNewUser(remoteIp);
                     userList.ListOfUsers.Add( activeUser, receiveMessage);
                     activeUser.SendMessageTCP("0"+userInfo.userName);
-                    UserActions userActions = new UserActions(receiveMessage);
                     
                     textBox.Invoke((MethodInvoker)delegate
                     {
                         // Running on the UI thread
-                        textBox.Text += userActions.UserEntered();
+                        textBox.Text += DateTime.Now + " " +  receiveMessage + " РІС…РѕРґРёС‚ РІ С‡Р°С‚\r\n";
                     });
                     Task.Factory.StartNew(() => ListenClient(activeUser));
                 }
@@ -90,7 +86,6 @@ namespace Chat_lab3
 
         private void NewUserConnect()
         {
-            // прослушивание входящих подключений
             TcpListener tcpListener = new TcpListener(userInfo.IpAddress, 5556);
             tcpListener.Start();
             try
@@ -122,7 +117,6 @@ namespace Chat_lab3
             while (true)
             {
                 string tcpMessage = activeUser.ReceiveMessageTCP();
-                //userList.ListOfUsers.Add(tcpMessage, activeUser);
 
 
                 switch (tcpMessage[0])
@@ -143,7 +137,7 @@ namespace Chat_lab3
                         {
                             string name;
                             userList.ListOfUsers.TryGetValue(activeUser, out name);
-                            textBox.Text += name + " " + activeUser.ipAddress + " покидает чат" + "\r\n";
+                            textBox.Text +=  DateTime.Now.ToString()+ " " +name + " " + activeUser.ipAddress + " РїРѕРєРёРґР°РµС‚ С‡Р°С‚" + "\r\n";
 
                         }));
                         userList.ListOfUsers.Remove(activeUser);
@@ -154,7 +148,7 @@ namespace Chat_lab3
                             // Running on the UI thread
                             string name;
                             userList.ListOfUsers.TryGetValue(activeUser, out name);
-                            textBox.Text += name + " "+ activeUser.ipAddress+ " "+ tcpMessage.Substring(1) + "\r\n";
+                            textBox.Text +=  DateTime.Now.ToString()+ " " +name + " "+ activeUser.ipAddress+ " "+ tcpMessage.Substring(1) + "\r\n";
                         }); 
                         break;
                 }

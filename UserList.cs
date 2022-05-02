@@ -4,10 +4,8 @@ using System.Net;
 using System.Net.Sockets;
 namespace Chat_lab3
 {
-    public class UserList : IUserList
+    public class UserList
     {
-        //private Dictionary<string, IPAddress> listOfUsers;
-        //public List<ActiveUser> ListOfUsers { get; set; }
         public Dictionary<ActiveUser, string> ListOfUsers { get; set; }
 
         public UserList()

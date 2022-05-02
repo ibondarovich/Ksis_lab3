@@ -63,7 +63,7 @@ namespace Chat_lab3
                 }
                 catch
                 {
-                    //return "1";
+                    
                 }
             }
             while (dataStream.DataAvailable);
